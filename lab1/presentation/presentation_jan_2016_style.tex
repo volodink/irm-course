@@ -1,0 +1,39 @@
+\beamertemplatenavigationsymbolsempty 
+\setbeamertemplate{footline}[frame number]
+%\setbeamerfont{institute}{size=\small,series=\bfseries,parent=structure}
+\setbeamercolor{frametitle}{fg=Black,bg=White}
+
+\usefonttheme{serif}
+
+\usepackage[T2A]{fontenc}
+%\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{fontspec}      %% подготавливает загрузку шрифтов Open Type, True Type и др.
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}  %% свойства шрифтов по умолчанию
+\setmainfont[Ligatures={TeX,Historic}]{Arial} %% задаёт основной шрифт документа
+\setsansfont{Arial}                    %% задаёт шрифт без засечек
+%\setmonofont{Courier New}
+\frenchspacing
+
+\usepackage{pgf}
+\usepackage{textcomp}
+\usepackage{listings}
+\usepackage{indentfirst}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+\usepackage{movie15}
+\usepackage{multicol}
+
+\renewcommand{\emph}[1]{{\color{blue} #1}}
+
+\hypersetup{unicode}
+
+\usepackage{tikz}
+
+\lstset{language=C, keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue}, stringstyle=\color{orange},
+  morekeywords={bool, true, false, uint16_t, size_t, parse_result}}
+
+\usepackage{graphicx}
+\graphicspath{ {images} }

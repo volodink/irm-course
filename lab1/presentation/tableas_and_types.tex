@@ -1,0 +1,180 @@
+\documentclass[t, aspectratio=169,xcolor=dvipsnames]{beamer}
+
+\input{presentation_jan_2016_style.tex}
+
+\title[Copter 2015]
+{
+ Схема БД. Выбор типов для хранения значений.
+}
+
+\author
+{
+	Володин К.И.
+}
+
+\institute[ПензГТУ]
+{
+   Кафедра “Информационные технологии и системы”\\
+   Лаборатория “Высокопроизводительные вычисления и встраиваемые системы (ВВиВС)”, ПензГТУ\\
+}
+
+\date{\today}
+
+\begin{document}
+{
+	\setbeamertemplate{footline}{} 
+	\begin{frame}
+		\titlepage
+	\end{frame}
+}
+
+\begin{frame}{Таблица: Categories}
+
+\pause
+Поля и типы
+\begin{itemize}
+   \item CategoryID \pause int
+   \pause 
+   \item CategoryName \pause VARCHAR(255)
+   \pause
+   \item Description \pause VARCHAR(255)
+   \pause
+\end{itemize}
+
+\pause
+Ограничения
+\begin{itemize}
+	\item CategoryID int {\color{red}NOT NULL}
+\end{itemize}
+
+\pause
+Автоинкрементное поле(счетчик)
+\begin{itemize}
+	\item  CategoryID int NOT NULL {\color{red}AUTO\_INCREMENT}
+\end{itemize}
+
+\pause
+Ключи
+\begin{itemize}
+	\item  {\color{red}PRIMARY KEY} (CategoryID)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Таблица: Suppliers}
+\pause
+			SupplierID int NOT NULL AUTO\_INCREMENT,
+
+			SupplierName VARCHAR(255),
+
+			ContactName VARCHAR(255),
+
+			Address VARCHAR(255),
+
+			City VARCHAR(255),
+
+			PostalCode VARCHAR(255),
+
+			Country VARCHAR(255),
+
+			Phone VARCHAR(255),
+
+			PRIMARY KEY (SupplierID)
+\end{frame}
+
+\begin{frame}{Таблица: Products}
+\pause
+	ProductID int NOT NULL AUTO\_INCREMENT,
+	
+	ProductName VARCHAR(255),
+
+	SupplierID int,
+
+	CategoryID int,
+
+	Unit VARCHAR(255),
+
+	Price numeric(15,2),
+
+	PRIMARY KEY (ProductID)
+\end{frame}
+
+\begin{frame}{Таблица: OrderDetails}
+\pause
+	OrderDetailID int NOT NULL AUTO\_INCREMENT,
+	
+	OrderID int,
+
+	ProductID int,
+
+	Quantity int,
+
+	PRIMARY KEY (OrderDetailID)
+\end{frame}
+
+\begin{frame}{Таблица: Orders}
+\pause	
+	OrderID int NOT NULL AUTO\_INCREMENT,
+	
+	CustomerID int,
+
+	EmployeeID int,
+
+	OrderDate DATE,
+
+	ShipperID int,
+
+	PRIMARY KEY (OrderID)
+\end{frame}
+
+\begin{frame}{Таблица: Customers}
+\pause	
+	CustomerID int NOT NULL AUTO\_INCREMENT,
+	
+	CustomerName VARCHAR(255),
+	
+	ContactName VARCHAR(255),
+	
+	Address VARCHAR(255),
+	
+	City VARCHAR(255),
+	
+	PostalCode VARCHAR(255),
+	
+	Country VARCHAR(255),
+	
+	PRIMARY KEY (CustomerID)
+\end{frame}
+
+\begin{frame}{Таблица: Employees}
+\pause	
+	EmployeeID int NOT NULL AUTO\_INCREMENT,
+	
+	LastName VARCHAR(255),
+	
+	FirstName VARCHAR(255),
+	
+	BirthDate DATE,
+	
+	Photo VARCHAR(255),
+	
+	Notes TEXT,
+	
+	PRIMARY KEY (EmployeeID)
+\end{frame}
+
+\begin{frame}{Таблица: Shippers}
+\pause	
+	ShipperID int NOT NULL AUTO\_INCREMENT,
+	
+	ShipperName VARCHAR(255),
+
+	Phone VARCHAR(255),
+
+	PRIMARY KEY (ShipperID)
+\end{frame}
+
+
+
+\end{document}
+
